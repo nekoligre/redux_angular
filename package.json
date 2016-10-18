@@ -1,0 +1,17 @@
+{
+  "name": "ejemplo_redux",
+  "version": "0.0.1",
+  "description": "ejemploderedux en angular 1",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "alberto gonzalez novella",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.16.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-server-livereload": "^1.9.0"
+  }
+}
