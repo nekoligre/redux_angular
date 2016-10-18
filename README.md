@@ -1,2 +1,7 @@
 # redux_angular
-Example redux angular 
+
+Installation
+------------
+
+* npm install
+* gulp start
