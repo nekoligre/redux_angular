@@ -1,4 +1,4 @@
-(function(){
+(()=>{
   angular.
   module('app')
   .run(run)
@@ -6,52 +6,55 @@
   
   run.$inject = ["reduxFct"]
   function run(reduxFct){
-    var reducers = function(state,action){
-        var newState = Object.assign({}, state);
+    let reducers = (state,action)=>{
+        let newState = Object.assign({}, state);
         switch (action.type) {
-          case "NAME":
-            newState.name = action.name;
+          case "SUMAR":
+            newState.COUNT +=1;
             break;
-          case "REDUX":
-            newState.redux = action.adj;
+          case "RESTAR":
+            newState.COUNT -=1;
             break;
         }
       return newState
     }
-    reduxFct.init(reducers,{name:"conor",redux:"mola"})
+    reduxFct.init(reducers,{COUNT:50})
   }
 
-  function reduxFct(){
+  function reduxFct($rootScope){
 
-    var factory ={
-      init:init,
-      getState:getState,
-      dispatch:dispatch,
-      subscribe:subscribe,
-      addReducer:addReducer}
-    var state;
-    var reducer;
-    var subscribers = [];
+    let factory ={
+      init,
+      getState,
+      dispatch,
+      subscribe,
+    }
+    let state;
+    let reducer;
+    let subscribers = [];
 
     function init(reducerInit,initState){
       state = initState;
-      reducer = reducerInit; }
+      reducer = reducerInit; 
+    }
     function getState(){return state};
     function dispatch(action){
       state = reducer(state, action);
       subscribers.forEach(function(subscriber){subscriber()});
-      return action; }
+      return action; 
+    }
     function subscribe(listener){
       subscribers.push(listener);
       return function(){
         subscribers = subscribers.slice(subscribers.indexOf(listener) + 1, 1);
-      };}
-    function addReducer(state,action){
-      var a = getReducer();
-      console.log(getReducer()) }
-    function getReducer(){return reducer;}
+      };
+    }
 
+
+
+    
+    
     return factory
-  }
 
-}());
+  }
+})();

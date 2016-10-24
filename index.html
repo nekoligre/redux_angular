@@ -8,28 +8,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script type="text/javascript" src="node_modules\angular\angular.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
-    <script type="text/javascript" src="js/controller/Home.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    
+    <script type="text/javascript" src="component/uno/module.js"></script>
+    <script type="text/javascript" src="component/uno/controller/uno.js"></script>
+
+    <script type="text/javascript" src="component/dos/module.js"></script>
+    <script type="text/javascript" src="component/dos/controller/dos.js"></script>
+    
+    
+    <script type="text/javascript" src="component/view-data/module.js"></script>
+    <script type="text/javascript" src="component/view-data/controller/view-data.js"></script>
+
     <script type="text/javascript" src="services/redux.js"></script>
   </head>
   <body ng-app="app">
-    <div ng-controller="HomeCtrl as vm">
+    <div ng-controller="UnoCrtl as vm">
+      <div style="float:left;width:50%;margin:1%;">
+        <h3>Componente para sumar</h3>
+        <button ng-click="vm.sumarUno()">Click para sumar uno</button>  
+      </div>
+    </div>
+    <div ng-controller="DosCrtl as vm">
+       <div style="float:left;width:50%;margin:1%;">
+        <h3>Componente para restar</h3>
+        <button ng-click="vm.restarUno()">Click para restar uno</button>
+        </div>
+    <div>
+    <hr>
+    <div ng-controller="viewData as vm">
         {{vm.state}}
-        <hr/>
-        <br>
-        <h3>Dispacth eventos en nombre</h3>
-        <div style="float:left">
-          <button ng-click="vm.dispatchName('Alberto González')">Change Name "alberto"</button>
-          <button ng-click="vm.dispatchName('Pepito Grillo')">Change Name "pepito grillo"</button>
-          <h3>Dispacth eventos en adjetivos</h3>
-          <button ng-click="vm.dispatchAdj('Mola mucho')">Change Adj "Mola mucho"</button>
-          <button ng-click="vm.dispatchAdj('Impresionante')">Change Adj "Es Impresionante"</button>
-        </div>
-        <!--
-        <div style="border-left:solid 2px black;heigth:300px;float:left">
-          <button ng-disabled ng-click="vm.addReducer()">Add reducer</button>   
-        </div>
-        -->
     </div>
   </body>
 </html>
