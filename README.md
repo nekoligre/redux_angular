@@ -3,5 +3,5 @@
 Installation
 ------------
 
-* npm install
+* yarn
 * gulp start
